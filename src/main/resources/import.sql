@@ -1,0 +1,10 @@
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Rafael Meloni', '12325325',4000.00,'2004-12-31',1);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Renata Silva', '235175551',2500.00,'1995-11-23',2);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Elira Santo', '47852325',1500.00,'1980-05-11',3);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Elton John', '057144511',35000.00,'1995-07-31',0);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Renato Russo', '25478525',10000.00,'1990-12-31',1);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Caetano Veloso', '012474555',4500.00,'2005-07-07',4);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Martin King', '123278471',7550.80,'2010-03-08',1);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Luiz Inacio', '124725325',4000.00,'2004-12-25',5);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Leonado Vinci', '78245125',100000.00,'1750-05-14',1);
+INSERT INTO tb_client (name, cpf, income, birth_date,children) VALUES ('Brad Stalone', '471674544',5000.00,'2000-12-31',2);
