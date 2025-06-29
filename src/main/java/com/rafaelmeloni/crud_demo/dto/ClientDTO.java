@@ -2,6 +2,7 @@ package com.rafaelmeloni.crud_demo.dto;
 
 import com.rafaelmeloni.crud_demo.entities.Client;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +24,7 @@ public class ClientDTO {
     @NotBlank(message = "Please insert a not blank CPF")
     private String cpf;
     private Double income;
+    @PastOrPresent(message = "The birth date cannot be a future date. ")
     private LocalDate birthDate;
     private Integer children;
 

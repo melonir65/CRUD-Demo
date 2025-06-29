@@ -1,6 +1,7 @@
 package com.rafaelmeloni.crud_demo.controllers;
 
 import com.rafaelmeloni.crud_demo.dto.ClientDTO;
+import com.rafaelmeloni.crud_demo.repositories.ClientRepository;
 import com.rafaelmeloni.crud_demo.services.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class ClientController {
 
     @Autowired
     private ClientService clientService;
+    @Autowired
+    private ClientRepository clientRepository;
 
 
     @GetMapping
@@ -44,6 +47,12 @@ public class ClientController {
     public ResponseEntity<ClientDTO> update(@PathVariable Integer id, @Valid @RequestBody ClientDTO clientDTO){
         ClientDTO dto = clientService.update(id, clientDTO);
         return ResponseEntity.ok(dto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<ClientDTO> delete(@PathVariable Integer id){
+        clientService.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 
