@@ -5,11 +5,15 @@ import com.rafaelmeloni.crud_demo.dto.ClientDTO;
 import com.rafaelmeloni.crud_demo.entities.Client;
 import com.rafaelmeloni.crud_demo.repositories.ClientRepository;
 import com.rafaelmeloni.crud_demo.services.exceptions.ResourceNotFoundException;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class ClientService {
@@ -40,6 +44,17 @@ public class ClientService {
         Entity = clientRepository.save(Entity);
         return new ClientDTO(Entity);
     }
+
+
+    @Transactional()
+    public ClientDTO update(Integer id, ClientDTO clientDTO){
+
+        Client entity =clientRepository.getReferenceById(id);
+        copyDtoToEntity(clientDTO,entity);
+        return new ClientDTO(entity);
+
+    }
+
 
     private void copyDtoToEntity(ClientDTO clientDTO, Client entity){
 
