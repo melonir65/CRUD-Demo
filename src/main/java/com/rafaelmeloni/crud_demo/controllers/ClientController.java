@@ -31,7 +31,7 @@ public class ClientController {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> findById(@PathVariable Integer id){
+    public ResponseEntity<ClientDTO> findById(@PathVariable Long id){
         ClientDTO dto = clientService.findById(id);
         return ResponseEntity.ok(dto);
     }
@@ -44,13 +44,13 @@ public class ClientController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> update(@PathVariable Integer id, @Valid @RequestBody ClientDTO clientDTO){
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @Valid @RequestBody ClientDTO clientDTO){
         ClientDTO dto = clientService.update(id, clientDTO);
         return ResponseEntity.ok(dto);
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<ClientDTO> delete(@PathVariable Integer id){
+    public ResponseEntity<ClientDTO> delete(@PathVariable Long id){
         clientService.delete(id);
         return ResponseEntity.noContent().build();
     }

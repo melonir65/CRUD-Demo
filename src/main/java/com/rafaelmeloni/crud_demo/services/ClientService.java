@@ -25,7 +25,7 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     @Transactional(readOnly = true)
-    public ClientDTO findById(Integer id){
+    public ClientDTO findById(Long id){
 
        Client client = clientRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Client not found with id " + id));
        return new ClientDTO(client);
@@ -50,7 +50,7 @@ public class ClientService {
 
 
     @Transactional()
-    public ClientDTO update(Integer id, ClientDTO clientDTO){
+    public ClientDTO update(Long id, ClientDTO clientDTO){
 
         Client entity =clientRepository.getReferenceById(id);
         copyDtoToEntity(clientDTO,entity);
@@ -59,7 +59,7 @@ public class ClientService {
     }
 
     @Transactional(propagation = Propagation.SUPPORTS)
-    public void delete(Integer id) {
+    public void delete(Long id) {
         if (!clientRepository.existsById(id)) {
             throw new ResourceNotFoundException("Client not found with id " + id);
         }
